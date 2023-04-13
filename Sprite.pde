@@ -1,6 +1,8 @@
 class Sprite {
+
     PVector pos, vel, size;
     int team = 2;
+    color spriteColor = color(255,255,255);
     
     Sprite(float x, float y, float w, float h) {
         pos = new PVector(x, y);
@@ -12,7 +14,7 @@ class Sprite {
     }
     
     void display() {
-        fill(255);
+        fill(spriteColor);
         ellipse(pos.x, pos.y, size.x, size.y);
     }
     

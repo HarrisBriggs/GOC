@@ -1,8 +1,9 @@
 class Invader extends Sprite {
 
-    Invader(int x, int y) {
+    Invader(float x, float y) {
         super(x, y, 40, 40);
         vel = new PVector(5, 0);
+        spriteColor = color(235, 102, 56);
     }
 
     void update() {

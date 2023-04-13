@@ -5,6 +5,7 @@ class Player extends Sprite {
     Player(float x, float y) {
         super(x, y, 40, 40);
         team = 1;
+        spriteColor = color(59, 116, 209);
     }
 
     void update() {
@@ -36,6 +37,7 @@ class Player extends Sprite {
             case 'S': down = false; break;
             case 'd':
             case 'D': right = false; break;
+            case ' ': fire(); break;
         }
     }
 
@@ -50,6 +52,11 @@ class Player extends Sprite {
             case 'd':
             case 'D': right = true; break;
         }
+    }
+
+    void fire() {
+        PVector aim = new PVector(0, -20);
+        _SM.spawn(new Bullet(pos, aim, team));
     }
 
     void handleCollision() {
