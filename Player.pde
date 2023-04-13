@@ -1,7 +1,6 @@
 class Player extends Sprite {
 
     boolean left, right, up, down;
-    float speed = 1.2;
 
     Player(float x, float y) {
         super(x, y, 40, 40);
@@ -9,15 +8,22 @@ class Player extends Sprite {
     }
 
     void update() {
-        if(up) vel.add(new PVector(0, -speed));
-        if(left) vel.add(new PVector(-speed, 0));
-        if(right) vel.add(new PVector(speed, 0));
-        if(down) vel.add(new PVector(0, speed));
-
+        float speed = 2.0;
+        if (left)  vel.add(new PVector( -speed, 0));
+        if (right) vel.add(new PVector(speed, 0));
+        if (up)    vel.add(new PVector(0, -speed));
+        if (down)  vel.add(new PVector(0, speed));
+        // update the position by velocity
         pos.add(vel);
 
-        // Decelerate
-        vel.mult(0.9);
+        //fix bounds
+        if(pos.x < 0 + size.x/2) pos.x = size.x/2;
+        if(pos.x > width - size.x/2) pos.x = width - size.x/2;
+        if(pos.y < 0 + size.y/2) pos.y = size.y/2;
+        if(pos.y > height - size.y/2) pos.y = height-size.y/2;
+
+        // always try to decelerate
+        vel.mult(0.8);
     }
 
     void keyUp() {
@@ -44,5 +50,9 @@ class Player extends Sprite {
             case 'd':
             case 'D': right = true; break;
         }
+    }
+
+    void handleCollision() {
+
     }
 }

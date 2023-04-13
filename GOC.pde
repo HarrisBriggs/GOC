@@ -1,10 +1,7 @@
-//Don't initialize here
 SpriteManager _SM;
 
-//This function runs one time at the beginning
 void setup() {
-    //Window size (800 x 600)
-    size(800, 600);
+    size(1024, 768);
     _SM = new SpriteManager();
     _SM.spawn(new Invader(250,50));
 }

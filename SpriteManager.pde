@@ -5,7 +5,7 @@ class SpriteManager {
     ArrayList<Sprite> destroyed = new ArrayList<Sprite>();
 
     SpriteManager() {
-        player = new Player(width / 2, height = 100);
+        player = new Player(width / 2, height - 100);
         spawn(player);
     }
 
