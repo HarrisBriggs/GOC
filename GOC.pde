@@ -10,7 +10,7 @@ void setup() {
     _SM = new SpriteManager();
     _SM.spawn(new Invader(250,50));
     _SM.spawn(new Shooter(150,100));
-    _SM.spawn(new MissileLauncher(350,150));
+    _SM.spawn(new HeavyGunner(350,150));
 }
 
 //Always runs at the speed of the framerate

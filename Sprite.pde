@@ -17,6 +17,18 @@ class Sprite {
         fill(spriteColor);
         ellipse(pos.x, pos.y, size.x, size.y);
     }
+
+    int getRelations(Sprite b) {
+        if(team == -1 || b.team == -1) {
+            return 1;
+        }
+        else if(team != b.team) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
     
     void handleCollision() {
         _SM.destroy(this);

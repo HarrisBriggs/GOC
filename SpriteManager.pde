@@ -49,7 +49,7 @@ class SpriteManager {
             for(int j = i + 1; j < active.size(); j++) {
                 Sprite a = active.get(i);
                 Sprite b = active.get(j);
-                if(a.team != b.team && collision(a,b)) {
+                if(a.getRelations(b) == 0 && collision(a,b)) {
                     active.get(i).handleCollision();
                     active.get(j).handleCollision();
                 }
